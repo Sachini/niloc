@@ -1,2 +1,3 @@
-# niloc
-Neural Inertial Localization
+# Neural Inertial Localization
+
+Coming soon
