@@ -1,0 +1,16 @@
+# @package _group_
+
+name: 'transformer_full'
+# transformer feature size
+d_model : 672
+# number of transformer heads per layer
+nhead : 8
+# number of hidden units per layer
+d_feedforward : 1024
+# number of transformer layers
+encoder_layers : 2
+decoder_layers: 2
+
+dropout : 0.2
+sample: 10
+

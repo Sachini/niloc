@@ -1,0 +1,13 @@
+# Floorplan grid information
+grid:
+  size: [ 112, 384 ]
+  # grid bounds for location mapping in data input
+  bounds: [ 0, 112, 0, 384 ]
+  # distance unit conversion for location mapping in data input
+  cell_length: 1.0
+  # number of grid cells
+  elements: 43008
+  image_file: <path>
+  # image pixels per meter
+  dpi: 10.
+

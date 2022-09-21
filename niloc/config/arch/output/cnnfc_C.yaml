@@ -1,0 +1,11 @@
+name: cnnfc
+# include input and output channels
+channels: [1, 8, 8, 3]
+# values per layer
+stride: [2, 2, 2]
+kernel_size : [3, 3, 3]
+padding : [1, 1, 1]
+out_padding : [1, 1, 1]
+
+# model_dim 672
+interim_dim: [14, 48]

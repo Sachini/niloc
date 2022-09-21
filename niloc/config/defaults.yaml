@@ -1,0 +1,81 @@
+# @package _global_
+
+# run_name is used to find the related checkpoint if restarting is set true.
+# ASSIGN A UNIQUE RUN_NAME FROM EACH RUN
+run_name : niloc
+# for initialization
+random_seed: 0
+
+# switch between configurations
+defaults:
+  ## dataset specific config
+  # map details
+  - grid: C
+  # details of input dataset.
+  - dataset : C
+  # details for loading dataset
+  - dataclass: txt_velocity_likelihood
+  - data : train
+
+  # task and other task specific configurations
+  - task : scheduled_2branch
+
+  # io contains details for output.
+  - io : default
+
+  # arch contains model architecture name (required) and model specific configurations
+  - arch : transformer_2branch
+  # Configurations for pytorch_lightning.Trainer using same keys
+  - trainer_cfg: default
+   # optimizer
+  - train_cfg/optimizer: AdamW
+  #scheduler
+  - train_cfg/scheduler: WarmupReduceLROnPlateau
+
+
+network:
+  input_dim : 2
+  # output dim assigned according to grid
+  output_dim : -1
+
+train_cfg:
+  # learning rate
+  lr : 3e-04
+  # maximum epochs
+  epochs : 800
+  # path to checkpoint to resume training from
+  resume_from_checkpoint : null
+  # path to checkpoint to only load weights
+  load_weights_only: false
+  gpus: 0
+  # single node training (including multi-gpu) should use 'dp', distributed parallel
+  # other models are used in multi-node training.
+  accelerator: null # dp, ddp, ddp2, ddp_spawn
+  # number of workers for dataloader. With ddp, total would be num_workers * gpus
+  num_workers: 8
+  # single node training (including multi-gpu) should use 'dp', distributed parallel
+  # other models are used in multi-node training.
+  retry_from_last : true
+
+test_cfg:
+  # Use minimal when calculating test time.
+  minimal: false
+
+  save_n_plots: null
+  model_path : null
+  hparam_path : null
+  test_name : output
+
+  # trajectory reconstruct
+  # smooth trajectory results
+  smooth: True
+  # apply gaussian filter for visualization
+  filter: 5
+  save_output_trajectory: true
+
+  # save plots/videos
+  full_traj_heatmap: false
+  individual_traj_heatmap: false
+  full_error_bar: true
+  # [Optional] required for tensorboard-video
+  ffmpeg_path: null

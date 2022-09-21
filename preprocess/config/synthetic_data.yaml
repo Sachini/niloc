@@ -1,0 +1,49 @@
+# Floorplan image should is 0 for obstacles and 1 for free-space in channel 0 (Red).
+# [Optional] channel 1 (Green) is 0 for obstacles & doors and channel 2 is 0 for obstacles, doors & rooms and only 1 for
+# corridors.
+floorplan:
+  # image file path
+  path: <path>
+  resize_factor: 1.0
+
+# output
+folder: <path>
+
+# unique tag to prevent overwriting between runs
+file_tag: 'a'
+save_plot: False
+# number of trajectories to generate per neighbourhood size
+num_agents: 10
+# minimum trajectory length
+min_length: 400
+
+perturb:
+  # perturb by rotating map before A* (change Manhatten directions)
+  rotate: False
+  # rotate by random angle if null
+  angle: null
+
+planner:
+  # weight to encourage Manhattan motion
+  manhatten_weight: 0.1
+  # minimum distance between start and goal nodes as a factor of floorplan size
+  min_dist_factor: 0
+  # maximum distance between start and goal nodes as a factor of floorplan size
+  max_dist_factor: 0
+  # max cells for one move
+  neighbourhood: 5
+  # if true, generate agents with neighbourhood (1.. neighbourhood)
+  generate_intermediate: true
+  # [Optional] cost to walk on rooms
+  room_cost: 0.0
+
+# trajectory characteristics
+trajectory:
+  # avg_speed in pixels
+  avg_speed: 1.0
+  # sample frequency
+  frequency: 1.0
+  # standard deviation for speed perturbation
+  speed_std: 0.005
+  # bspline smoothing factor
+  smooth: 5.0

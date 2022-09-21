@@ -1,0 +1,6 @@
+# @package _group_
+# see niloc/network/optim_utils for details
+name: WarmupConstant
+monitor: False
+
+warmup_steps: 10

@@ -1,0 +1,14 @@
+# @package _group_
+
+name: 'transformer_encoder'
+# transformer feature size
+d_model : 672
+# number of transformer heads per layer
+nhead : 8
+# number of hidden units per layer
+d_feedforward : 750
+# number of encoder layers
+num_layers : 3
+
+dropout : 0.2
+sample: 10

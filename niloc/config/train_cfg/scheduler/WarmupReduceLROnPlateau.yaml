@@ -1,0 +1,13 @@
+# @package _group_
+# see torch.pre_processing.lr_scheduler.ReduceLROnPlateau for details
+name: WarmupReduceLROnPlateau
+monitor: val_loss
+
+multiplier: 1.0
+warmup_epochs: 30
+mode: min
+factor: 0.75
+patience: 10
+min_lr: 1e-12
+eps: 1e-8
+verbose: True

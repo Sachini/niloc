@@ -1,0 +1,5 @@
+# @package _group_
+# Any flags for PyTorch Lightning Trainer class can be added here
+terminate_on_nan: True
+gradient_clip_val: 1.0
+progress_bar_refresh_rate: 10

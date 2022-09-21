@@ -1,0 +1,6 @@
+# @package data
+# Data saved in txt files [time, inertial_traj_x, inertial_traj_y, location_x, location_y]
+
+classes:
+  sequence: VelocityGridSequence
+  dataset: GlobalLocDataset

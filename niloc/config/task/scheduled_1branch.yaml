@@ -1,0 +1,13 @@
+# @package _global_
+
+# A fully supervised model with a single output. Trained using parallel scheduled sampling.
+task: scheduled_1branch
+
+train_cfg:
+  tr_ratio: 1.0
+  #tr_ratio reduce rate (epochs)
+  arre: 5
+  #tr_ratio reduce rate (minus)
+  arrf: 0.01
+  #hold starting tr_ration for n epochs
+  tr_warmup: 75

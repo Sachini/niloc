@@ -1,0 +1,16 @@
+name: cnn1d
+# last num_channels * grid size should match transformer input
+channels: [1, 8, 8, 1]
+# values per layer
+kernel_size : [3, 3, 3]
+padding : [ 1, 1, 1]
+
+# pooling
+pool_kernel: [2, 2, 2]
+pool_stride: [2, 2, 2]
+
+# replace value in code
+grid_dim: True
+
+#positional_encoding
+pe : original_add

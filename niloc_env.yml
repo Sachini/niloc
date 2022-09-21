@@ -1,0 +1,25 @@
+name: niloc
+channels:
+  - pytorch
+  - conda-forge
+  - anaconda
+  - defaults
+dependencies:
+  - python=3.8
+  - numpy
+  - scipy
+  - scikit-image
+  - scikit-learn
+  - pytorch
+  - torchaudio
+  - torchvision
+  - cudatoolkit
+  - pytorch-lightning=1.2.6
+  - tensorboard
+  - omegaconf=2.0.6
+  - matplotlib
+  - moviepy
+  - ffmpeg
+  - h5py
+  - pip:
+      - hydra-core==1.0.6

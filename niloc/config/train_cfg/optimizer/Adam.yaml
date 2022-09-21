@@ -1,0 +1,7 @@
+# @package _group_
+# see torch.pre_processing.Adam for details
+name: Adam
+eps: 1e-08
+betas: [0.9, 0.999]
+weight_decay: 0
+amsgrad: False

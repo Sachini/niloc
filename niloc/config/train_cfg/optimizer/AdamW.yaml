@@ -1,0 +1,7 @@
+# @package _group_
+# see torch.pre_processing.AdamW for details
+name: AdamW
+eps: 1e-08
+betas: [0.9, 0.999]
+weight_decay: 1e-2
+amsgrad: False

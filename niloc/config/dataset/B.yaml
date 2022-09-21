@@ -1,0 +1,8 @@
+# @package _group_
+name: universityB
+# Dataset paths
+root_dir : <path>
+train_list : <path>/train.txt
+val_list: <path>/val.txt
+test_list : <path>/test.txt
+

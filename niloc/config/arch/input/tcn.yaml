@@ -1,0 +1,6 @@
+name: tcn
+# last value is replaced to match transformer
+num_channels: [32, -1]
+kernel_size: 3
+#positional_encoding
+pe : original_cat

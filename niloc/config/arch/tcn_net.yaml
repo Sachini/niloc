@@ -1,0 +1,10 @@
+# @package _group_
+
+# configuration for TCN model
+name : "tcn_net"
+num_channels: [32, 128, 256, 512, -1]
+kernel_size: 4
+dropout: 0.2
+activation: GELU
+d_model : 432
+sample: 1

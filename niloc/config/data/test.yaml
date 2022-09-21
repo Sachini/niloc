@@ -1,0 +1,28 @@
+# @package _group_
+batch_size: 10
+# frequency of data in dataset
+imu_base_freq : 10.0
+# frequency of (downsampled) input data. an integer fraction of "imu_base_freq"
+imu_freq : 10.0
+
+# Configuration for input data sampling
+window:
+  # values in seconds
+  window_time : 20.1
+  # stepping in testing (Hz) (*made equal to frame sample size of arch)
+  sample_freq : 1.0
+
+# Transformation parameters
+transform:
+  accel_bias_range: 0.2
+  gyro_bias_range: 0.05
+  scale_sigma: 0.05
+  yaw_drift_sigma: 0.01
+
+# Data transformer
+transformers:
+  yaw_drift: false
+  perturb_scale: false
+  do_bias_shift: false
+  reverse_direction: false
+  rotate_yaw: null

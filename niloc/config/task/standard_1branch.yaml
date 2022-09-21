@@ -1,0 +1,4 @@
+# @package _global_
+
+# A fully supervised model with a single output
+task: standard_1branch

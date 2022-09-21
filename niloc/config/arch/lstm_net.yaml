@@ -1,0 +1,9 @@
+# @package _group_
+
+# configuration for TCN model
+name : "lstm_net"
+
+dropout: 0.2
+d_model : 432
+lstm_layers: 3
+sample: 1

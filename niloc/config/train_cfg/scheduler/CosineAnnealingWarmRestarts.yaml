@@ -1,0 +1,8 @@
+# @package _group_
+# see torch.pre_processing.lr_scheduler.CosineAnnealingWarmRestarts for details
+name: CosineAnnealingWarmRestarts
+monitor: False
+
+T_0: 10
+T_mult: 2
+verbose: False

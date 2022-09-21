@@ -1,0 +1,4 @@
+# @package _group_
+# Output folder configuration
+root_path : <path>
+folder_name: models

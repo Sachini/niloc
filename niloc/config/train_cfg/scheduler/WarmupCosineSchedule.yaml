@@ -1,0 +1,8 @@
+# @package _group_
+# see niloc/network/optim_utils for details
+name: WarmupCosineSchedule
+monitor: False
+
+warmup_steps: 10
+cycles: 2
+t_total: True   # calculate

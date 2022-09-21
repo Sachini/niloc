@@ -1,0 +1,5 @@
+name: fc
+layers : [3000,]
+permute_idx: [2, 0, 1]
+#positional_encoding
+pe : original_cat
