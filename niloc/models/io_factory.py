@@ -308,12 +308,17 @@ input_embeddings = {
     "cnn2d": InputCNNImgEncoder,
 }
 
-output_activation = nn.PReLU
+output_activation = nn.ReLU
 output_activation_type = {
     "relu": nn.ReLU,
     "prelu": nn.PReLU,
     "elu": nn.ELU,
 }
+
+
+def set_activation(activation:str = "relu"):
+    global output_activation
+    output_activation = output_activation_type[activation]
 
 
 class OutputFC(nn.Module):

@@ -153,14 +153,15 @@ def launch_train(cfg: DictConfig) -> None:
 
     # create network
     if cfg.train_cfg.get("load_weights_only", False):
-        with tempfile.NamedTemporaryFile(suffix=".yaml") as fp:
-            OmegaConf.save(config=cfg, f=fp.name)
-            network = model_type.load_from_checkpoint(cfg.train_cfg.load_weights_only,
-                                                      hparams_file=fp.name)
         print(f"loaded weights from checkpoint {cfg.train_cfg.load_weights_only}")
         with open_dict(cfg):
             cfg.train_cfg.resume_from_checkpoint = None
             cfg.train_cfg.restore_tr_ratio = cfg.train_cfg.get("restore_tr_ratio", False)  # disable by default
+
+        with tempfile.NamedTemporaryFile(suffix=".yaml") as fp:
+            OmegaConf.save(config=cfg, f=fp.name)
+            network = model_type.load_from_checkpoint(cfg.train_cfg.load_weights_only,
+                                                      hparams_file=fp.name)
     else:
         network = model_type(cfg)
     logging.info(f'Network {cfg.task} & {cfg.arch.name} loaded: Model type {type(network).__name__}')

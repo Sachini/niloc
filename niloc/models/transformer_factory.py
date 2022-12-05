@@ -9,7 +9,9 @@ from torch.nn import (
     Transformer
 )
 
-from niloc.models.io_factory import positional_encoders, input_embeddings, output_embeddings, output_activation_type
+from niloc.models.io_factory import (
+    positional_encoders, input_embeddings, output_embeddings, output_activation_type, set_activation
+)
 
 
 class MyTransformerEncoder(nn.Module):
@@ -282,8 +284,9 @@ def get_positional_encoding(cfg: DictConfig, pe_name: str, ) -> Tuple[nn.Module,
 
 def build_transformer(arch: str, cfg: DictConfig, input_dim: int = 6, output_dim: int = 3) -> nn.Module:
     # build input/output layers
-    global _output_activation
-    _output_activation = output_activation_type[cfg.arch.get('output_activation', 'relu')]
+    global output_activation
+    output_activation = output_activation_type[cfg.arch.get('output_activation', 'relu')]
+    set_activation(cfg.arch.get('output_activation', 'relu'))
     io_layers = {}
 
     def build_velocity_input(layer_args: Dict[str, Any]) -> nn.Module:
@@ -314,14 +317,10 @@ def build_transformer(arch: str, cfg: DictConfig, input_dim: int = 6, output_dim
             args["grid_dim"] = cfg.grid.size
         return output_embeddings[layer_args["name"]](**args)
 
-    if arch == "transformer_decoder":
-        io_layers["dec_in_embedding"] = build_velocity_input(cfg.arch.decoder_input)
-        io_layers["enc_in_embedding"] = build_position_input(cfg.arch.encoder_input)
-    else:
-        if cfg.arch.get("encoder_input", False):
-            io_layers["enc_in_embedding"] = build_velocity_input(cfg.arch.encoder_input)
-        if cfg.arch.get("decoder_input", False):
-            io_layers["dec_in_embedding"] = build_position_input(cfg.arch.decoder_input)
+    if cfg.arch.get("encoder_input", False):
+        io_layers["enc_in_embedding"] = build_velocity_input(cfg.arch.encoder_input)
+    if cfg.arch.get("decoder_input", False):
+        io_layers["dec_in_embedding"] = build_position_input(cfg.arch.decoder_input)
 
     if cfg.arch.get("decoder_output", False):
         io_layers["dec_out_embedding"] = build_position_output(cfg.arch.decoder_output)
