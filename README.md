@@ -11,7 +11,7 @@ This is the implementation of the approach described in the paper.
 
 We provide the code for reproducing our results, datasets as well as pre-trained models.  
 - Dataset : [Dropbox](https://www.dropbox.com/scl/fo/uux0twqk7gsgwdpljkahd/h?dl=0&rlkey=0g8qi66jsl14ffbx6r7nfn3rx)  
-- Models : _coming soon_
+- Models : [Dropbox](https://www.dropbox.com/s/y198d1muh5lia8k/niloc_model_release.zip?dl=0)
 
 Please cite the following paper is you use the code, paper, models or data.
 
